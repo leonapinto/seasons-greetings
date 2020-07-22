@@ -1,61 +1,88 @@
 @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Roboto+Slab&display=swap');
-body{
+*{
     margin: 0;
-    padding:0;
-    background-color: bisque;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    /*background: rgb(141,165,77);
+    background: linear-gradient(90deg, rgba(141,165,77,0.9) 0%, rgba(91,108,23,0.9) 45%, rgba(47,49,8,0.9) 100%),*/
+    background: rgb(106,39,18);
+background: linear-gradient(90deg, rgba(106,39,18,0.5) 0%, rgba(145,0,20,0.8) 53%, rgba(130,16,35,0.5) 100%),
+url(https://images.unsplash.com/photo-1511268011861-691ed210aae8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80)
+    /*url(https://images.unsplash.com/photo-1575401744434-8e752e238768?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60)*/ ;
+    overflow: hidden;
+    
 }
 .Wishes{
-    background-color: blue;
+    background: rgba(168, 194, 3, 0.63);
     text-align: center;
-    padding: 20px;
-    margin-top: 200px;
     font-family: 'Roboto Slab', serif;
+    position: relative;
+    top: 200px;
+    padding: 20px;
     color: white;
-    transition-property: background, border-radius, width;
+    transition-property: background, border-radius, color;
     transition-duration: 1s;
 }
 .Wishes:hover, .Wishes:active {
-    background-color: red;
+    background: rgb(144,168,58);
     border-radius: 50%;
+    color: rgb(170,0,23);
 }
-/*.Wishes::before,
-.Wishes:after{
-    position:absolute;
+.bells::before{
     content: '';
-    height:100px;
-    width:100px;
+    position: absolute;
+    height: 7px;
+    width: 7px;
+    border-radius:50%;
     background-color: red;
-    bottom:0;
+    animation-name: myanimation, position, bang, gravity;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: backwards;
+    animation-timing-function: linear;
+    animation-delay: 1.5s 2s, 6.25s;
 }
-.Wishes::before{
-    right:50%;
-    transform: skew(0,20deg);
-    margin-top: 15%;
+@keyframes bang{
+      to{
+          box-shadow: -16px -55.66666667px #09eb1c, -23px -34px rgb(5, 175, 19), -76px 45px rgba(202, 12, 21, 0.9), 34px -70px rgb(16, 173, 16), 90px 60px rgb(6, 196, 22), 80px 34px rgb(4, 172, 32), -45px 87px rgb(122, 17, 15), -90px -33px rgb(92, 116, 8), 45px 0px rgb(90, 123, 0), 0px -87px rgba(47,49,8,0.9), 0px 79px rgb(170,0,23), -13px 0px rgb(141,165,77), -59.99994px 0.342323px rgb(144,168,58), -90.22424px 80.24243px rgb(144,168,58), 87px 57px rgba(91,108,23,0.9), 12px -39px rgb(144,168,58), -90px -23px rgba(47,49,8,0.9), -89px -19px rgba(47,49,8,0.9), 56px -97px rgba(170,0,23,0.6), -92px -23.8px rgba(0, 0, 80, 1), -67px 109px rgba(170,0,23,0.6), 98.222px -676px rgb(78,90,87), -367px -192px rgb(170,0,23), 98px 745px rgba(0, 0, 80, 1), 12px 622px rgb(144,168,58), -210px -23px rgba(91,108,23,0.9), 493px 69px rgb(144,168,58), -11px 21px rgba(170,0,23,0.6), -10px 12px rgba(47,49,8,0.9), 120px 110px rgb(98,23,22), 323px 24px rgb(170,0,23), 234px 56px rgba(170,0,23,0.6), 587px 78px rgba(0, 0, 80, 1), 459px 97px rgba(170,0,23,0.6), 109px 97px rgba(141,165,77,0.9), 75px 59px rgb(170,0,23), -98px -67px rgb(144,168,58), 98px 23px rgba(170,0,23,0.6), -409.90px 90px rgba(170,0,23,0.6), -549px -34px rgba(91,108,23,0.9), 95px 123px rgba(47,49,8,0.9), -32px 65px rgba(141,165,77,0.9), 1000px -23px rgb(141,165,77), 1290px -210px rgba(47,49,8,0.9), 1029px 1223px rgba(47,49,8,0.9), 990px 689px rgb(12,32,12), 1090px 543px rgb(170,0,23), 987px 543px rgb(98,23,22), 789px 542px rgba(0, 0, 80, 1), 762px 678px rgba(170,0,23,0.6), 692px 579px rgb(12,32,12), 932px 345px rgb(144,168,58), 232px 332px rgba(170,0,23,0.6), 322px 652px rgba(170,0,23,0.6), 4562px 332px rgba(170,0,23,0.6), 232px 672px rgba(170,0,23,0.6), 824px 532px rgba(170,0,23,0.6), 122px 332px rgba(170,0,23,0.6), 0px 832px rgba(170,0,23,0.6), 765px 67px rgb(170,0,23), 122px 345px rgba(47,49,8,0.9), 532px 732px rgba(170,0,23,0.6), -532px -1032px rgba(92, 17, 27, 0.6), 532px 672px rgba(170,0,23,0.6),-782px -762px rgba(170,0,23,0.6), -789px -897px rgba(170,0,23,0.6)
+      }
 }
-.Wishes::after{
-    left:50%;
-    transform:skew(0,-20deg);
-    margin-bottom: 15%;
-    
-}*/
+@keyframes gravity{
+    to{
+        transform: translateY(20px);
+    }
+}
+@keyframes position{
+    0%, 19.9% {
+        margin-top: 10%;
+        margin-left: 40%;
+      }
+      20%, 39.9% {
+        margin-top: 40%;
+        margin-left: 30%;
+      }
+      40%, 59.9% {
+        margin-top: 20%;
+        margin-left: 70%;
+      }
+      60%, 79.9% {
+        margin-top: 30%;
+        margin-left: 20%;
+      }
+      80%, 99.9% {
+        margin-top: 30%;
+        margin-left: 80%;
+      }
+}
 h2{
-    font-size: 50px;
+    font-size: 3.7vw;
+    vertical-align: center;
 }
-div:nth-child(2){
-    background: saddlebrown;
-}
-.Sign{
-    text-align: center;
-    padding: 10px;
-    margin-top: 21.5%;
-    font-family: 'Lobster', cursive;
-}
-.Sign:hover{
-    transition-duration: 2s;
-    transform: rotateY(360deg);
-}
-
 h3{
-    font-size: 30px;
+    font-family: 'Lobster', cursive;
+    color: white;
+    position: relative;
+    top: 250px;
 }
-h3:hover{}
